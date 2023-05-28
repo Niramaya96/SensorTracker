@@ -34,7 +34,8 @@ namespace SensorTracker.DataAcessLayer
                 new Sensor { Id = 25, Name = "K0", Price = 45},
                 new Sensor { Id = 26, Name = "K9", Price = 58},
                 new Sensor { Id = 27, Name = "K10", Price = 45},
-                new Sensor { Id = 28, Name = "K1И-КП", Price = 52});
+                new Sensor { Id = 28, Name = "K1И-КП", Price = 52},
+                new Sensor { Id = 29, Name = "", Price = 52 });
 
 
         }
