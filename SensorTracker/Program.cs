@@ -1,11 +1,13 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SensorTracker.DataAcessLayer;
 using SensorTracker.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
-
-string? connection = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+});
 
 
 var app = builder.Build();
@@ -22,34 +24,42 @@ app.MapGet("/Orders/{id}", async (int id,ApplicationDbContext context) =>
    await context.Orders.FirstOrDefaultAsync(o => o.Id == id);
 });
 
-app.MapPost("/Orders", async (Order order, ApplicationDbContext context) =>
+app.MapPost("/Orders", async ([FromBody]Order order,ApplicationDbContext context,
+    HttpResponse resonse) =>
 {
     await context.Orders.AddAsync(order);
+    await context.SaveChangesAsync();
+    // retirn Results.
+
 });
 
-app.MapPut("/Orders", async (Order order, ApplicationDbContext context) =>
+app.MapPut("/Orders", async ([FromBody] Order order, ApplicationDbContext context) =>
 {
-    var orderInDb =  context.Orders.FirstOrDefault(o => o.Id == order.Id);
+    var orderFromDb =  context.Orders.FirstOrDefault(o => o.Id == order.Id);
 
-    if (orderInDb == null)
+    if (orderFromDb == null)
     {
-        throw new Exception("Not found");
+        return Results.NotFound();
     }
 
-    orderInDb = order;
+    orderFromDb = order; // передаем DTO или VM
     await context.SaveChangesAsync();
+    //return Results.NoContent();
 });
 
 app.MapDelete("/Orders/{id}", async (int id, ApplicationDbContext context) =>
 {
-    var orderInDb = context.Orders.FirstOrDefault(o => o.Id == id);
+    var orderInDb = await context.Orders.FirstOrDefaultAsync(o => o.Id == id);
 
     if (orderInDb == null)
     {
-        throw new Exception("Not found");
+        Results.NotFound();
     }
     context.Orders.Remove(orderInDb);
     await context.SaveChangesAsync();
+    return Results.NoContent();
 });
+
+app.UseHttpsRedirection();
 
 app.Run();
