@@ -1,32 +1,55 @@
 using Microsoft.EntityFrameworkCore;
 using SensorTracker.DataAcessLayer;
+using SensorTracker.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 string? connection = builder.Configuration.GetConnectionString("DefaultConnection");
-
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
-// Add services to the container.
-builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+
+
+app.MapGet("/Orders", async (ApplicationDbContext context) =>
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+    await context.Orders.ToListAsync();
+});
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.MapGet("/Orders/{id}", async (int id,ApplicationDbContext context) =>
+{
+   await context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+});
 
-app.UseRouting();
+app.MapPost("/Orders", async (Order order, ApplicationDbContext context) =>
+{
+    await context.Orders.AddAsync(order);
+});
 
-app.UseAuthorization();
+app.MapPut("/Orders", async (Order order, ApplicationDbContext context) =>
+{
+    var orderInDb =  context.Orders.FirstOrDefault(o => o.Id == order.Id);
 
-app.MapRazorPages();
+    if (orderInDb == null)
+    {
+        throw new Exception("Not found");
+    }
+
+    orderInDb = order;
+    await context.SaveChangesAsync();
+});
+
+app.MapDelete("/Orders/{id}", async (int id, ApplicationDbContext context) =>
+{
+    var orderInDb = context.Orders.FirstOrDefault(o => o.Id == id);
+
+    if (orderInDb == null)
+    {
+        throw new Exception("Not found");
+    }
+    context.Orders.Remove(orderInDb);
+    await context.SaveChangesAsync();
+});
 
 app.Run();
