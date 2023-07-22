@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorTracker", "SensorTracker.csproj", "{983027F9-5D80-4317-B3B2-CBF8D886A45B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorTracker", "SensorTracker.csproj", "{983027F9-5D80-4317-B3B2-CBF8D886A45B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorTracker.Entities", "..\SensorTracker.Entities\SensorTracker.Entities.csproj", "{930EBA05-8524-4BEF-A1C6-594B9079B497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorTracker.Entities", "..\SensorTracker.Entities\SensorTracker.Entities.csproj", "{930EBA05-8524-4BEF-A1C6-594B9079B497}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{F632FE3C-6207-474D-8654-25D7C626C6BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAcessLayer", "DataAcessLayer", "{F64D5DF6-C65E-4E5B-9029-E6FE9874B33F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorTracker.DataAcessLayer", "..\SensorTracker.DataAcessLayer\SensorTracker.DataAcessLayer.csproj", "{01550E36-5257-44F2-94E2-7A0DC96E0471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorTracker.DataAcessLayer", "..\SensorTracker.DataAcessLayer\SensorTracker.DataAcessLayer.csproj", "{01550E36-5257-44F2-94E2-7A0DC96E0471}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BA57BE22-6359-4A25-A667-D3AD1D4820BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastucture", "Infrastucture", "{107488A3-7B74-4575-9AB9-D3AEACE76336}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "..\Infrastructure\Infrastructure.csproj", "{286326FA-229B-444B-81E3-C466AB46E3F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,10 @@ Global
 		{01550E36-5257-44F2-94E2-7A0DC96E0471}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01550E36-5257-44F2-94E2-7A0DC96E0471}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01550E36-5257-44F2-94E2-7A0DC96E0471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{286326FA-229B-444B-81E3-C466AB46E3F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286326FA-229B-444B-81E3-C466AB46E3F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286326FA-229B-444B-81E3-C466AB46E3F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286326FA-229B-444B-81E3-C466AB46E3F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +49,7 @@ Global
 		{983027F9-5D80-4317-B3B2-CBF8D886A45B} = {BA57BE22-6359-4A25-A667-D3AD1D4820BC}
 		{930EBA05-8524-4BEF-A1C6-594B9079B497} = {F632FE3C-6207-474D-8654-25D7C626C6BA}
 		{01550E36-5257-44F2-94E2-7A0DC96E0471} = {F64D5DF6-C65E-4E5B-9029-E6FE9874B33F}
+		{286326FA-229B-444B-81E3-C466AB46E3F3} = {107488A3-7B74-4575-9AB9-D3AEACE76336}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {251A7BAF-2D31-4C0E-BA74-8CE6539E2A26}

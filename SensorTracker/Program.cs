@@ -1,65 +1,54 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SensorTracker.DataAcessLayer;
-using SensorTracker.Entities;
-
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
 });
+builder.Services.AddScoped<ISensorRepository,SensorRepository>();
 
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI();
 
 
-app.MapGet("/Orders", async (ApplicationDbContext context) =>
+app.MapGet("/Sensors", async (ISensorRepository repository) =>
 {
-    await context.Orders.ToListAsync();
+    return await repository.GetSensorsAsync();
 });
 
-app.MapGet("/Orders/{id}", async (int id,ApplicationDbContext context) =>
+app.MapGet("/Sensors/{id}", async (int id,ISensorRepository repository) =>
+    await repository.GetSensorByIdAsync(id) is Sensor sensor
+    ? Results.Json(sensor) : Results.NotFound());
+
+app.MapPost("/Sensors", async ([FromBody]Sensor sensor,ISensorRepository repository) =>
 {
-   await context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+    await repository.InsertSensorAsync(sensor);
+    await repository.SaveChangesAsync();
+    return Results.Created($"Sensors/{sensor.Id}", sensor);
+});
+    
+
+
+app.MapPut("/Sensors", async ([FromBody] Sensor sensor, ISensorRepository repository) =>
+{
+    await repository.UpdateSensorAsync(sensor);
+    await repository.SaveChangesAsync();
+    return Results.NoContent();
 });
 
-app.MapPost("/Orders", async ([FromBody]Order order,ApplicationDbContext context,
-    HttpResponse resonse) =>
+app.MapDelete("/Sensors/{id}", async (int id, ISensorRepository repository) =>
 {
-    await context.Orders.AddAsync(order);
-    await context.SaveChangesAsync();
-    // retirn Results.
-
-});
-
-app.MapPut("/Orders", async ([FromBody] Order order, ApplicationDbContext context) =>
-{
-    var orderFromDb =  context.Orders.FirstOrDefault(o => o.Id == order.Id);
-
-    if (orderFromDb == null)
-    {
-        return Results.NotFound();
-    }
-
-    orderFromDb = order; // передаем DTO или VM
-    await context.SaveChangesAsync();
-    //return Results.NoContent();
-});
-
-app.MapDelete("/Orders/{id}", async (int id, ApplicationDbContext context) =>
-{
-    var orderInDb = await context.Orders.FirstOrDefaultAsync(o => o.Id == id);
-
-    if (orderInDb == null)
-    {
-        Results.NotFound();
-    }
-    context.Orders.Remove(orderInDb);
-    await context.SaveChangesAsync();
+    await repository.DeleteSensorAsync(id);
+    await repository.SaveChangesAsync();
     return Results.NoContent();
 });
 
 app.UseHttpsRedirection();
 
 app.Run();
+

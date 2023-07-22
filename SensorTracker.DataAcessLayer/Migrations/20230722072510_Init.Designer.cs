@@ -12,7 +12,7 @@ using SensorTracker.DataAcessLayer;
 namespace SensorTracker.DataAcessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230528150620_Init")]
+    [Migration("20230722072510_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -100,163 +100,113 @@ namespace SensorTracker.DataAcessLayer.Migrations
                         {
                             Id = 4,
                             Description = "С засыпкой",
-                            Name = "K2-KP",
+                            Name = "K2.1",
                             Price = 52.0
                         },
                         new
                         {
                             Id = 5,
                             Description = "С засыпкой",
-                            Name = "K2.1",
+                            Name = "K3",
                             Price = 52.0
                         },
                         new
                         {
                             Id = 6,
                             Description = "С засыпкой",
-                            Name = "K2T",
+                            Name = "K4",
                             Price = 52.0
                         },
                         new
                         {
                             Id = 7,
                             Description = "С засыпкой",
-                            Name = "К2Ф",
-                            Price = 52.0
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Description = "С засыпкой",
-                            Name = "K3",
-                            Price = 52.0
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Description = "С засыпкой",
-                            Name = "K4",
-                            Price = 52.0
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Description = "С засыпкой",
-                            Name = "K4P",
-                            Price = 52.0
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Description = "С засыпкой",
-                            Name = "K4.1",
-                            Price = 52.0
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Description = "С засыпкой",
                             Name = "K5",
                             Price = 52.0
                         },
                         new
                         {
-                            Id = 14,
+                            Id = 8,
                             Description = "С засыпкой",
                             Name = "К1И",
                             Price = 52.0
                         },
                         new
                         {
-                            Id = 15,
-                            Description = "С засыпкой",
-                            Name = "ТКЖ",
+                            Id = 9,
+                            Description = "С клеемной головкой",
+                            Name = "Кл1-1",
                             Price = 52.0
                         },
                         new
                         {
-                            Id = 16,
-                            Description = "С засыпкой",
-                            Name = "IT-8 RUT",
+                            Id = 10,
+                            Description = "С клеемной головкой",
+                            Name = "Кл1-2",
+                            Price = 52.0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Description = "С клеемной головкой",
+                            Name = "Кл1-3",
+                            Price = 52.0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Description = "С клеемной головкой",
+                            Name = "Кл4-1",
+                            Price = 52.0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Description = "С клеемной головкой",
+                            Name = "Кл2-2",
+                            Price = 58.0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Description = "С клеемной головкой",
+                            Name = "Кл3-1",
+                            Price = 48.0
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Description = "С клеемной головкой",
+                            Name = "Кл1-3",
                             Price = 52.0
                         },
                         new
                         {
                             Id = 17,
-                            Name = "K1",
-                            Price = 37.0
+                            Description = "Другие",
+                            Name = "Рт-3",
+                            Price = 52.0
                         },
                         new
                         {
                             Id = 18,
-                            Name = "K2",
-                            Price = 37.0
+                            Description = "Другие",
+                            Name = "Рт-4",
+                            Price = 52.0
                         },
                         new
                         {
                             Id = 19,
-                            Name = "K2.1",
-                            Price = 37.0
+                            Description = "Другие",
+                            Name = "Рт-5",
+                            Price = 52.0
                         },
                         new
                         {
                             Id = 20,
-                            Name = "K3",
+                            Description = "Другие",
+                            Name = "It-7",
                             Price = 37.0
-                        },
-                        new
-                        {
-                            Id = 21,
-                            Name = "K4",
-                            Price = 37.0
-                        },
-                        new
-                        {
-                            Id = 22,
-                            Name = "K5",
-                            Price = 37.0
-                        },
-                        new
-                        {
-                            Id = 23,
-                            Name = "K2Ф",
-                            Price = 37.0
-                        },
-                        new
-                        {
-                            Id = 24,
-                            Name = "K2М",
-                            Price = 37.0
-                        },
-                        new
-                        {
-                            Id = 25,
-                            Name = "K0",
-                            Price = 45.0
-                        },
-                        new
-                        {
-                            Id = 26,
-                            Name = "K9",
-                            Price = 58.0
-                        },
-                        new
-                        {
-                            Id = 27,
-                            Name = "K10",
-                            Price = 45.0
-                        },
-                        new
-                        {
-                            Id = 28,
-                            Name = "K1И-КП",
-                            Price = 52.0
-                        },
-                        new
-                        {
-                            Id = 29,
-                            Name = "",
-                            Price = 52.0
                         });
                 });
 

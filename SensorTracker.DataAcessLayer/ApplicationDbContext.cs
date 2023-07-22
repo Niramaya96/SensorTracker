@@ -9,8 +9,6 @@ namespace SensorTracker.DataAcessLayer
             : base(options) {  }
         public DbSet<Order> Orders { get; set; } = null!;
         public DbSet<Sensor> Sensors { get; set; } = null!;
-
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Seed();
