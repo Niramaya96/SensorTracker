@@ -1,6 +1,7 @@
 ﻿namespace SensorTracker.Controllers
 {
-    public class OrderController
+    public class SensorController
     {
+
     }
 }

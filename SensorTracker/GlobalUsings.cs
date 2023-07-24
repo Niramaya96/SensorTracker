@@ -2,5 +2,5 @@
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
 global using SensorTracker.DataAcessLayer;
-global using SensorTracker.DataAcessLayer.Repos;
+global using Infrastructure.Interfaces;
 global using SensorTracker.Entities;

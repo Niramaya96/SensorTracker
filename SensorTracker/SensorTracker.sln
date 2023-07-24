@@ -9,15 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorTracker.Entities", ".
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{F632FE3C-6207-474D-8654-25D7C626C6BA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAcessLayer", "DataAcessLayer", "{F64D5DF6-C65E-4E5B-9029-E6FE9874B33F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{F64D5DF6-C65E-4E5B-9029-E6FE9874B33F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorTracker.DataAcessLayer", "..\SensorTracker.DataAcessLayer\SensorTracker.DataAcessLayer.csproj", "{01550E36-5257-44F2-94E2-7A0DC96E0471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorTracker.DataAccessLayer", "..\SensorTracker.DataAcessLayer\SensorTracker.DataAccessLayer.csproj", "{01550E36-5257-44F2-94E2-7A0DC96E0471}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BA57BE22-6359-4A25-A667-D3AD1D4820BC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastucture", "Infrastucture", "{107488A3-7B74-4575-9AB9-D3AEACE76336}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastucture.Interfaces", "Infrastucture.Interfaces", "{107488A3-7B74-4575-9AB9-D3AEACE76336}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "..\Infrastructure\Infrastructure.csproj", "{286326FA-229B-444B-81E3-C466AB46E3F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "..\Infrastructure\DataAccess.csproj", "{286326FA-229B-444B-81E3-C466AB46E3F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UseCases", "UseCases", "{AE11DB38-6293-4685-9933-73497BC9C504}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
