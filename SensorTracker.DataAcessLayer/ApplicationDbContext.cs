@@ -17,6 +17,8 @@ namespace SensorTracker.DataAcessLayer
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Sensor>().HasKey(s => s.Id);
+            builder.Entity<Order>().HasKey(o => o.OrderNumber);
             builder.Seed();
         }
     }

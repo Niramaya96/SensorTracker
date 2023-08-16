@@ -3,12 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>Тестовый документ</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="Css/style.css">
 </head>
 
   <body>
       <header>
-        <img src="Resources/logo.png">
+        <a href="#" class="header-logo">Logo</a>
+        <ul class="header-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
       </header>
 
     <main>
@@ -34,14 +39,12 @@
       </div>
       <div class="form">
         <form method="post">
-          <fieldset>
-            <legend>Добавить запись</legend>
+          <legend>Добавить запись</legend>
             <input name="Name" type="text" size="10" maxlength="10" placeholder="Название">
             <input name="Count" type="number" min="0" max="100"  placeholder="Кол-во">
             <input name="OrderNumber" size="10" maxlength="10" placeholder="Номер Заказа">
             <input name="CreationDate" type="date">
             <input type="submit" value="Добавить">
-          </fieldset>
         </form>
       </div>
       </main>
